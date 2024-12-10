@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Apartment } from '../../../core/models/apartment';
+import { Apartment } from '../../core/models/apartment';
 
 @Component({
   selector: 'app-apartments',
-  templateUrl: './apartment.component.html',
-  styleUrls: ['./apartment.component.css'],
+  templateUrl: './apartments.component.html',
+  styleUrls: ['./apartments.component.css'],
 })
 export class ApartmentComponent {
   apartments: Apartment[] = [
@@ -36,5 +36,4 @@ export class ApartmentComponent {
       ResidenceId: 2,
     },
   ];
- 
 }

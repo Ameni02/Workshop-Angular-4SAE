@@ -1,1 +1,65 @@
-<p>add-apartment works!</p>
+<div class="container"> 
+    <div class="row">
+        <h2>Add New Apartment</h2>
+    </div>
+    <div class="row">
+        <form [formGroup]="apartment">
+            <div class="mb-3">
+                <label >Apartment Number:</label>
+                <input  class="form-control" formControlName="apartNum">
+                <div class="alert alert-danger" *ngIf="apartNum?.invalid && (apartNum?.touched || apartNum?.dirty)">
+                    <div *ngIf="apartNum?.hasError('required')">Apartment Number is required</div>
+                    <div *ngIf="apartNum?.hasError('pattern')">Apartment Number must be a number</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label >Floor Number:</label>
+                <input  class="form-control" formControlName="floorNum">
+                <div class="alert alert-danger" *ngIf="floorNum?.invalid && (floorNum?.touched || floorNum?.dirty)">
+                    <div *ngIf="floorNum?.hasError('required')">Floor Number is required</div>
+                    <div *ngIf="floorNum?.hasError('pattern')">Floor Number must be a number</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label >Surface:</label>
+                <input class="form-control" formControlName="surface">
+                <div class="alert alert-danger" *ngIf="surface?.invalid && (surface?.touched || surface?.dirty)">
+                    <div *ngIf="surface?.hasError('required')">Surface is required</div>
+                    <div *ngIf="surface?.hasError('min')">Surface must be greater than 0</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label >Has Terrace:</label>
+                <select  class="form-select" formControlName="terrace">
+                    <option [value]="true">Yes</option>
+                    <option [value]="false">No</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label >Terrace Surface:</label>
+                <input class="form-control" formControlName="surfaceterrace">
+                <div class="alert alert-danger" *ngIf="surfaceterrace?.invalid && (surfaceterrace?.touched || surfaceterrace?.dirty)">
+                    <div *ngIf="surfaceterrace?.hasError('required')">Terrace Surface is required</div>
+                    <div *ngIf="surfaceterrace?.hasError('min')">Terrace Surface must be a positive number</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label >Category:</label>
+                <input class="form-control" formControlName="category">
+                <div class="alert alert-danger" *ngIf="category?.invalid && (category?.touched || category?.dirty)">
+                    <div *ngIf="category?.hasError('required')">Category is required</div>
+                    <div *ngIf="category?.hasError('minlength')">Category must have at least 3 characters</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" [disabled]="apartment.invalid">Add Apartment</button>
+            </div>
+        </form>
+    </div>
+</div>

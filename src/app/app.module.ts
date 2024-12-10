@@ -10,8 +10,10 @@ import { FooterComponent } from './Compnents/footer/footer.component';
 import { NotFoundComponent } from './Compnents/not-found/not-found.component';
 import { ApartmentByResidenceComponent } from './Compnents/apartments/apartment-by-residence/apartment-by-residence.component';
 import { ResidenceDetailsComponent } from './Compnents/residences/residence-details/residence-details.component';
-import { ApartmentComponent } from './Compnents/apartments/apartment/apartment.component';
+
 import { AddResidenceComponent } from './Compnents/residences/add-residence/add-residence.component';
+import { AddApartmentComponent } from './Compnents/apartments/add-apartment/add-apartment.component';
+import { ApartmentComponent } from './Compnents/apartments/apartment/apartment.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,9 @@ import { AddResidenceComponent } from './Compnents/residences/add-residence/add-
     NotFoundComponent,
     ApartmentByResidenceComponent,
     ResidenceDetailsComponent,
-    ApartmentComponent,
-    AddResidenceComponent
+    AddResidenceComponent,
+    AddApartmentComponent,
+    ApartmentComponent
   ],
   imports: [
     BrowserModule,
