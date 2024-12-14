@@ -1,43 +1,44 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApartmentService } from 'src/app/service/apartment.service';
 
 @Component({
   selector: 'app-add-apartment',
   templateUrl: './add-apartment.component.html',
-  styleUrls: ['./add-apartment.component.css']
+  styleUrls: ['./add-apartment.component.css'],
 })
 export class AddApartmentComponent {
-  apartment: FormGroup=new FormGroup({
-    apartNum: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
-    floorNum: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
-    surface: new FormControl('', [Validators.required, Validators.min(1)]),
-    terrace: new FormControl(false), 
-    surfaceterrace: new FormControl('', [Validators.required, Validators.min(0)]),
-    category: new FormControl('', [Validators.required, Validators.minLength(3)])
-  });
+  constructor(private _activated: ActivatedRoute,private apartmentService:ApartmentService,private router:Router) {}
+  apartment!: FormGroup;
 
-  get apartNum() {
-    return this.apartment.get('apartNum');
-  }
-  get floorNum() {
-    return this.apartment.get('floorNum');
-  }
-  get surface() {
-    return this.apartment.get('surface');
-  }
-  get terrace() {
-    return this.apartment.get('terrace');
-  }
-  get surfaceterrace() {
-    return this.apartment.get('surfaceterrace');
-  }
-  get category() {
-    return this.apartment.get('category');
+  ngOnInit(): void {
+    this.apartment = new FormGroup({
+      apartNum: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[0-9]+'),
+      ]),
+      floorNum: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[0-9]+'),
+      ]),
+      surface: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[0-9]+'),
+      ]),
+      terrace: new FormControl('', [Validators.required]),
+      surfaceterrace: new FormControl('', [Validators.pattern('[0-9]+')]),
+      category: new FormControl('', [Validators.required]),
+    });
+    this.apartment.addControl('ResidenceId', new FormControl());
+    this.apartment.patchValue({
+      ResidenceId: this._activated.snapshot.params['idR'],
+    });
   }
 
   add() {
-    if (this.apartment.valid) {
-      console.log(this.apartment.value);
-    }
+    console.log(this.apartment);
+    this.apartmentService.addAparment(this.apartment.value)
+    this.router.navigate(['/apartments'])
   }
 }

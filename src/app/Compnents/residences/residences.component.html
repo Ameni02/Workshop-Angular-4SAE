@@ -10,7 +10,6 @@
         <th>Name</th>
         <th>Status</th>
         <th colspan="2">Actions</th>
-        <th colspan="2" >Appartements </th>
     </tr>
     </thead>
     <tbody>
@@ -23,12 +22,12 @@
         <td *ngIf="r.status == 'En Construction'"> 🚧 {{r.status}}</td>
         <td><button class="btn btn-outline-primary" (click)="selectResidence(r)">Show location</button></td>
        <td> <button class="btn btn-outline-danger" (click)="addToFavoris(r)">{{isFavoris(r) == -1 ? 'Like' : 'Dislike'}}</button>
-        
         </td>
-        <td><button class="btn btn-outline-primary" [routerLink]="['/details/',r.id]">Details</button></td>
-        <td> <button class="btn btn-outline-primary" [routerLink]="['/appartementbyresidence/',r.id]">Appartement by residence </button></td>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/details/',r.id]">Détails</button></td>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/apartment/add/',r.id]">add apartment</button></td>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/residence/show/',r.id]">show apartments</button></td>
+
     </tr>
-  
     </tbody>
 </table>
 <p class="alert alert-primary" *ngIf="show"> Addresse de Résidence {{x.name}} : {{x.address}}</p>
@@ -41,7 +40,6 @@
         <th>ID</th>
         <th>Name</th>
         <th>Status</th>
-        
     </tr>
     </thead>
     <tbody>
@@ -53,7 +51,6 @@
         <td *ngIf="r.status == 'Vendu'"> ❌ {{r.status}}</td>
         <td *ngIf="r.status == 'En Construction'"> 🚧 {{r.status}}</td>
     </tr>
-
     </tbody>
 </table>
 </div>

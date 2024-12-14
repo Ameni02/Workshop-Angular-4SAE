@@ -8,12 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './Compnents/nav-bar/nav-bar.component';
 import { FooterComponent } from './Compnents/footer/footer.component';
 import { NotFoundComponent } from './Compnents/not-found/not-found.component';
-import { ApartmentByResidenceComponent } from './Compnents/apartments/apartment-by-residence/apartment-by-residence.component';
+import { ApartmentsByResidenceComponent } from './Compnents/apartments/apartment-by-residence/apartment-by-residence.component';
 import { ResidenceDetailsComponent } from './Compnents/residences/residence-details/residence-details.component';
-
 import { AddResidenceComponent } from './Compnents/residences/add-residence/add-residence.component';
 import { AddApartmentComponent } from './Compnents/apartments/add-apartment/add-apartment.component';
-import { ApartmentComponent } from './Compnents/apartments/apartment/apartment.component';
+import { ApartmentsComponent } from './Compnents/apartments/apartment/apartment.component';
 
 @NgModule({
   declarations: [
@@ -22,19 +21,20 @@ import { ApartmentComponent } from './Compnents/apartments/apartment/apartment.c
     NavBarComponent,
     FooterComponent,
     NotFoundComponent,
-    ApartmentByResidenceComponent,
+   ApartmentsByResidenceComponent,
     ResidenceDetailsComponent,
     AddResidenceComponent,
     AddApartmentComponent,
-    ApartmentComponent
+   ApartmentsComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
